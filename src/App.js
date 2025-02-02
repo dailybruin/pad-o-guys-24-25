@@ -115,9 +115,9 @@ Fusce neque. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante conv
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <ScrollingEffect slides={slides} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
