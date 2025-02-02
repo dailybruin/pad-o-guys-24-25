@@ -23,6 +23,7 @@ const ScrollingEffect = ({ slides = [] }) => {
         }
 
         event.preventDefault(); // Prevent page from scrolling
+        event.stopPropagation();
       }
     },
     [isScrolling, validSlides.length]
@@ -52,7 +53,29 @@ const ScrollingEffect = ({ slides = [] }) => {
         >
           {validSlides.map((slideText, i) => (
             <div className="slide" key={i}>
-              {slideText}
+              <p style={{ 
+                    paddingX: "112px", 
+                    paddingTop: "78px", 
+                    paddingBottom: "62px", 
+                    display: "flex",
+                    width: "632px",
+                    height: "993px",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    overflow: "hidden",
+                    color: "#000",
+                    textOverflow: "ellipsis",
+                    // whiteSpace: "nowrap",
+                    whiteSpace: "normal",
+                    fontFamily: "Courier Prime",
+                    fontSize: "18px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "normal"
+                    }}>
+                {slideText}
+              </p>
             </div>
           ))}
         </div>
