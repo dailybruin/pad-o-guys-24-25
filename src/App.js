@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from "react";
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import React from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import PhotoStack from "./components/PhotoStack";
 
 function App() {
-  const [ data, setData ] = useState(null);
-  
-  useEffect(() => {
-		fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/pad-o-guys-24-25")
-		.then(res => res.json())
-		.then(res => setData(res.data['article.aml']))
-  }, [])
+  const photos = [
+    { src: "/images/photo1.jpg", alt: "Photo 1", credit: "John Doe" },
+    { src: "/images/photo2.jpg", alt: "Photo 2", credit: "Jane Smith" },
+    { src: "/images/photo3.jpg", alt: "Photo 3", credit: "Photography Inc." },
+    { src: "/images/photo4.jpg", alt: "Photo 4", credit: "Another Photographer" },
+    { src: "/images/photo5.jpg", alt: "Photo 5", credit: "Creative Artist" },
+  ];
 
-  return data && (
+  return (
     <div className="App">
-      <Header/>
-      Hello Daily Bruin!
-      <Footer/>
+      <Header />
+      <main>
+        <h1>Hello Daily Bruin!</h1>
+        <PhotoStack photos={photos} />
+      </main>
+      <Footer />
     </div>
   );
 }
