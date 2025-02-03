@@ -76,7 +76,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1; /* sidebar should be above all paper and background */
+  z-index: 2; /* sidebar should be above all paper and background */
 }
 
 .sidebar-circle {
@@ -164,4 +164,25 @@ body {
   font-family: "Courier Prime", serif;
   font-weight: 700;
   font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .paper {
+    width: 60vw;
+    margin-left: 15vw;
+    margin-right: 0;
+  }
+
+  .paper .text-content {
+    font-size: 17px;
+    padding: 20px 20px;
+  }
+
+  .sidebar {
+    right: 10%;
+  }
+
+  footer {
+    padding: 18px 0;
+  }
 }
