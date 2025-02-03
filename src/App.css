@@ -124,7 +124,7 @@ body {
   width: 59vw; /* width set to be flexible */
   max-width: 856px; /* value from figma */
   height: auto; /* height dependant on the paper text */
-  margin: 40px 0;
+  margin: 0 0;
   flex-shrink: 0;
   scroll-snap-align: start;
   box-sizing: border-box;
