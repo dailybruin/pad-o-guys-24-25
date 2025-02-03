@@ -1,106 +1,40 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useRef } from "react";
+import "../App.css";
 
-const ScrollingEffect = ({ slides = [] }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const paperRef = useRef(null); // Reference to the paper box
+function ScrollingEffect({ slides }) {
+  const papersRef = useRef([]); // for each slide / paper
 
-  const validSlides = Array.isArray(slides) ? slides : [];
-
-  const handleScroll = useCallback(
-    (event) => {
-      if (isScrolling || validSlides.length === 0) return;
-
-      // Check if mouse is inside the `.paper` box
-      if (paperRef.current && paperRef.current.contains(event.target)) {
-        setIsScrolling(true);
-        setTimeout(() => setIsScrolling(false), 500);
-
-        if (event.deltaY > 0) {
-          setCurrentIndex((prev) => Math.min(prev + 1, validSlides.length - 1));
-        } else {
-          setCurrentIndex((prev) => Math.max(prev - 1, 0));
-        }
-
-        event.preventDefault(); // Prevent page from scrolling
-        event.stopPropagation();
-      }
-    },
-    [isScrolling, validSlides.length]
-  );
-
-  useEffect(() => {
-    window.addEventListener("wheel", handleScroll, { passive: false });
-
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-    };
-  }, [handleScroll]);
-
-  if (validSlides.length === 0) {
-    return <div className="main-container">No content available.</div>;
-  }
+  // for sidebar navigation
+  const handleScroll = (index) => {
+    if (papersRef.current[index]) {
+      papersRef.current[index].scrollIntoView({ behavior: "smooth" });
+      // counting the index of the paper to navigate
+    }
+  };
 
   return (
-    <div className="main-container">
-      <div className="paper" ref={paperRef}>
-        <div
-          className="slides-container"
-          style={{
-            transform: `translateY(-${currentIndex * 100}%)`,
-            transition: "transform 0.6s ease-in-out"
-          }}
-        >
-          {validSlides.map((slideText, i) => (
-            <div className="slide" key={i}>
-              <p style={{ 
-                    paddingX: "112px", 
-                    paddingTop: "78px", 
-                    paddingBottom: "62px", 
-                    display: "flex",
-                    width: "632px",
-                    height: "993px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                    overflow: "hidden",
-                    color: "#000",
-                    textOverflow: "ellipsis",
-                    // whiteSpace: "nowrap",
-                    whiteSpace: "normal",
-                    fontFamily: "Courier Prime",
-                    fontSize: "18px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "normal"
-                    }}>
-                {slideText}
-              </p>
-            </div>
-          ))}
-        </div>
+    <div className="scroll-container">
+      <div className="sidebar">
+        {slides.map((_, index) => (
+          <div key={index} className="sidebar-circle"onClick={() => handleScroll(index)}>
+             {/* svg from the Figma */}
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6" stroke="white" stroke-opacity="0.7" stroke-width="4"/>
+             </svg>
+          </div>
+        ))}
       </div>
+
+      {/* Paper aka slide being generated */}
+      {slides.map((slide, index) => (
+        <div key={index} className="paper" ref={(el) => (papersRef.current[index] = el)}>
+          <div className="text-content">
+            <p>{slide}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default ScrollingEffect;
-
-
-
-
-
-
-/*
-const Scrolling = ({ article, index }) => {
-    const [background, SetBackground] = useState();
-
-    return (
-        <>
-            <p>{article.article_title}</p>
-            <a href={article.article_url} style={{ textDecoration: 'none', color: 'inherit' }}></a>
-        </>
-    );
-};
-
-export default Scrolling;*/

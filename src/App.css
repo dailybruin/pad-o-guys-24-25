@@ -38,92 +38,110 @@
   }
 }
 
-
-
-/* Fixed wood background */
-body {
-  margin: 0;
-  padding: 0;
-  background: url("././images/Wood Pattern.png") no-repeat center center fixed;
-  background-size: cover;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden; 
-  width: 1440px;
-  /* height: 1574px; */
-  height: 100vh;
-  flex-shrink: 0;
-}
-
-/* centers the 'paper' - for the main container */
-.main-container {
-  flex: 1;
-  position: relative;
-  width: 100%;
-  height: 100vh;  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* ensure Footer is always at the bottom */
 footer {
   width: 100%;
   background: black;
   color: white;
   text-align: center;
   padding: 20px 0;
-  position: fixed;
+  position: relative;
+  margin-top: auto;
+  display: block;
+  z-index: 1;
 }
 
-/* paper (cream rectangle) */
+/* Wooden background  */
+body {
+  margin: 0;
+  padding: 0;
+  background: url("././images/Wood Pattern.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  /* min-height: 100vh; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Sidebar for navigation through the articles */
+.sidebar {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1; /* sidebar should be above all paper and background */
+}
+
+.sidebar-circle {
+  /* values from figma */
+  width: 16px;
+  height: 15px;
+  flex-shrink: 0;
+  stroke-width: 4px;
+  stroke: rgba(255, 255, 255, 0.70);
+  border-radius: 50%; 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-circle:hover {
+  background-color: #ffffffb3;
+  fill: #ffffffb3;
+}
+
+/* Scroll container */
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+  height: 100%; /* necessary for correct header and footer display */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Paper for articles */
 .paper {
   position: relative;
-  width: 856px;
-  height: 1133px;
+  background: url("././images/Paper.png") no-repeat center center fixed;
+  background-size: cover;
+  width: 59vw; /* width set to be flexible */
+  max-width: 856px; /* value from figma */
+  height: auto; /* height dependant on the paper text */
+  margin: 40px 0;
   flex-shrink: 0;
-  background: #FFF9EB;
-  box-shadow: 0px 30px 30px 5px rgba(45, 27, 16, 0.20);
-  overflow-x: hidden; /* Ensures slides don’t overflow */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  margin-left: 291px;
+  margin-right: 291px;
 }
 
-/* slide container (vertical movement) */
-.slides-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease-in-out; /* Smooth scrolling effect */
-}
-
-/* each slide of presentation (one chunk of text) */
-.slide {
-  align-items: center;
-  text-align: center;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  white-space: normal;
-  word-wrap: break-word;
-  /* overflow: hidden;
+.paper .text-content {
   color: #000;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: "Courier Prime";
+  font-family: "Courier Prime", monospace;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal; */
+  padding: 78px 112px 62px 112px;
+  text-align: justify;
+  word-wrap: break-word;
 }
 
+/* text for the papers */
 .courier-prime-regular {
   font-family: "Courier Prime", serif;
   font-weight: 400;
