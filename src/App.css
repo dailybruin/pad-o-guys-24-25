@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: fixed;
 }
 
 .App-link {
@@ -34,5 +35,214 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+footer {
+  width: 100%;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  margin-top: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* Wooden background  */
+body {
+  margin: 0;
+  padding: 0;
+  background: url("././images/Wood Pattern.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  /* min-height: 100vh; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Sidebar for navigation through the articles */
+.sidebar {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2; /* sidebar should be above all paper and background */
+}
+
+.sidebar-circle {
+  /* values from figma */
+  width: 16px;
+  height: 15px;
+  flex-shrink: 0;
+  stroke-width: 4px;
+  stroke: rgba(255, 255, 255, 0.70);
+  border-radius: 50%; 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-circle:hover {
+  background-color: #ffffffb3;
+  fill: #ffffffb3;
+}
+
+/* Scroll container */
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+  height: 100%; /* necessary for correct header and footer display */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Paper for articles */
+.paper {
+  position: relative;
+  background: url("././images/Paper.png") no-repeat center center fixed;
+  background-size: cover;
+  width: 59vw; /* width set to be flexible */
+  max-width: 856px; /* value from figma */
+  height: auto; /* height dependant on the paper text */
+  margin: 0 0;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  margin-left: 291px;
+  margin-right: 291px;
+  padding: 40px;
+}
+
+.paper .text-content {
+  color: #000;
+  font-family: "Courier Prime", monospace;
+  font-size: 18px;
+  padding: 78px 112px 62px 112px;
+  text-align: justify;
+  word-wrap: break-word;
+  z-index: 2;
+}
+
+/* text for the papers */
+.courier-prime-regular {
+  font-family: "Courier Prime", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.courier-prime-bold {
+  font-family: "Courier Prime", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.courier-prime-regular-italic {
+  font-family: "Courier Prime", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.courier-prime-bold-italic {
+  font-family: "Courier Prime", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.folder-background {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 90vw;
+  max-width: 1183.117px;
+  height: auto; 
+  transform: translate(-50%, -50%); 
+  z-index: -1; 
+}
+
+.coffee-background {
+  position: absolute;
+  top: 0%;
+  left: -15%;
+  /* width: 316px;
+  height: 316px; */
+  width: 25vw;
+  height: 25vw;
+  transform: rotate(150.242deg);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .paper {
+    width: 60vw;
+    margin-left: 15vw;
+    margin-right: 0;
+  }
+
+  .paper .text-content {
+    font-size: 17px;
+    padding: 20px 20px;
+  }
+
+  .sidebar {
+    right: 10%;
+  }
+
+  footer {
+    padding: 18px 0;
+  }
+
+  .paper .text-content {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .folder-background {
+    width: 80vw; 
+    max-width: 1000px;
+  }
+
+  .coffee-background {
+    /* width: 20vw;
+    height: 20vw; */
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .paper {
+    width: 90vw;
+    margin-left: 5vw;
+  }
+
+  .paper .text-content {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .coffee-background {
+    /* width: 15vw;
+    height: 15vw; */
+    display: none;
   }
 }
