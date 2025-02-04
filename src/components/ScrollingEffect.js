@@ -63,6 +63,7 @@ function ScrollingEffect({ slides }) {
               />
             </svg>
           </div>
+          {index === 0 && (
           <div className="coffee-background">
             <svg width="663" height="615" viewBox="0 0 663 615" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M428.26 149.95L555.952 100.314C578.704 95.0467 599.361 141.194 576.242 152.509L448.55 202.145L428.26 149.95Z" fill="#FFF3D6"/>
@@ -101,7 +102,7 @@ function ScrollingEffect({ slides }) {
             </filter>
             </defs>
             </svg>
-          </div>
+          </div>)}
 
           <div className="text-content">
             <p>{slide}</p>
