@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import "../App.css";
 import coffee from "../images/coffee.svg";
 import pencil from "../images/pencil.svg";
 import ticket from "../images/ticket.svg";
@@ -20,10 +21,30 @@ import threequartpizza from "../images/threequartpizza.svg";
 import mail from "../images/mail.svg";
 
 import animation from "../images/animation.gif";
-import "../App.css";
 
 function ScrollingEffect({ slides }) {
   const papersRef = useRef([]); // for each slide / paper
+
+    // Scroll detection for fade effect
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = window.innerHeight;
+  
+        // Detect if user is at the bottom
+        if (scrollTop + clientHeight >= scrollHeight - 10) {
+          // Add class to show fade effect
+          document.body.classList.add("show-fade");
+        } else {
+          // Remove class when not at the bottom
+          document.body.classList.remove("show-fade");
+        }
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
   // for sidebar navigation
   const handleScroll = (index) => {
