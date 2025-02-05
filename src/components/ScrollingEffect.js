@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../App.css";
 import coffee from "../images/coffee.svg";
 import pencil from "../images/pencil.svg";
@@ -23,34 +23,28 @@ import mail from "../images/mail.svg";
 import animation from "../images/animation.gif";
 
 function ScrollingEffect({ slides }) {
-  const papersRef = useRef([]); // for each slide / paper
+  const papersRef = useRef([]);
 
-    // Scroll detection for fade effect
-    useEffect(() => {
-      const handleScroll = () => {
-        const scrollTop = window.scrollY;
-        const scrollHeight = document.documentElement.scrollHeight;
-        const clientHeight = window.innerHeight;
-  
-        // Detect if user is at the bottom
-        if (scrollTop + clientHeight >= scrollHeight - 10) {
-          // Add class to show fade effect
-          document.body.classList.add("show-fade");
-        } else {
-          // Remove class when not at the bottom
-          document.body.classList.remove("show-fade");
-        }
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
 
-  // for sidebar navigation
-  const handleScroll = (index) => {
+      if (scrollTop + clientHeight >= scrollHeight - 10) {
+        document.body.classList.add("show-fade");
+      } else {
+        document.body.classList.remove("show-fade");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScrollToSlide = (index) => {
     if (papersRef.current[index]) {
       papersRef.current[index].scrollIntoView({ behavior: "smooth" });
-      // counting the index of the paper to navigate
     }
   };
 
@@ -58,160 +52,154 @@ function ScrollingEffect({ slides }) {
     <div className="scroll-container">
       <div className="sidebar">
         {slides.map((_, index) => (
-          <div key={index} className="sidebar-circle"onClick={() => handleScroll(index)}   style={{ position: "relative", zIndex: 9999 }}>
-             {/* svg from the Figma */}
-             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <circle cx="8" cy="8" r="6" stroke="white" stroke-opacity="0.7" stroke-width="4"/>
-             </svg>
+          <div
+            key={index}
+            className="sidebar-circle"
+            onClick={() => handleScrollToSlide(index)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <circle
+                cx="8"
+                cy="8"
+                r="6"
+                stroke="white"
+                strokeOpacity="0.7"
+                strokeWidth="4"
+              />
+            </svg>
           </div>
         ))}
       </div>
 
-      {/* Paper aka slide being generated */}
       {slides.map((slide, index) => (
-        <div key={index} className="paper" ref={(el) => (papersRef.current[index] = el)}>
+        <div
+          key={index}
+          className="paper"
+          ref={(el) => (papersRef.current[index] = el)}
+        >
           <div className="folder-background">
             {/* Embedded SVG for background */}
-            <svg width="1304" height="915" viewBox="0 0 1304 915" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path 
-                fillRule="evenodd" 
-                clipRule="evenodd" 
-                d="M4.19098 163.742C2.3882 147.272 14.2785 132.459 30.7487 130.656L1147.2 8.45289C1163.67 6.65012 1178.48 18.5404 1180.28 35.0106L1206.46 274.141C1207.69 285.363 1217.78 293.465 1229 292.237C1240.22 291.008 1250.32 299.11 1251.55 310.333L1269.3 472.481C1270.52 483.704 1262.42 493.797 1251.2 495.026C1239.98 496.254 1231.87 506.347 1233.1 517.57L1259.17 755.706C1260.97 772.176 1249.08 786.989 1232.61 788.792L116.162 910.996C99.6922 912.798 84.879 900.908 83.0762 884.438L57.0169 646.36C55.785 635.105 63.91 624.983 75.1646 623.751C86.4193 622.519 94.5443 612.397 93.3124 601.142L75.5768 439.11C74.3449 427.855 64.2226 419.73 52.968 420.962C41.7133 422.194 31.591 414.069 30.3591 402.814L4.19098 163.742Z" 
+            <svg
+              width="1304"
+              height="915"
+              viewBox="0 0 1304 915"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M4.19098 163.742C2.3882 147.272 14.2785 132.459 30.7487 130.656L1147.2 8.45289C1163.67 6.65012 1178.48 18.5404 1180.28 35.0106L1206.46 274.141C1207.69 285.363 1217.78 293.465 1229 292.237C1240.22 291.008 1250.32 299.11 1251.55 310.333L1269.3 472.481C1270.52 483.704 1262.42 493.797 1251.2 495.026C1239.98 496.254 1231.87 506.347 1233.1 517.57L1259.17 755.706C1260.97 772.176 1249.08 786.989 1232.61 788.792L116.162 910.996C99.6922 912.798 84.879 900.908 83.0762 884.438L57.0169 646.36C55.785 635.105 63.91 624.983 75.1646 623.751C86.4193 622.519 94.5443 612.397 93.3124 601.142L75.5768 439.11C74.3449 427.855 64.2226 419.73 52.968 420.962C41.7133 422.194 31.591 414.069 30.3591 402.814L4.19098 163.742Z"
                 fill="#FFE6A7"
               />
-              <rect 
-                x="578.477" 
-                y="70.7034" 
-                width="10" 
-                height="785" 
-                transform="rotate(-6.24656 578.477 70.7034)" 
+              <rect
+                x="578.477"
+                y="70.7034"
+                width="10"
+                height="785"
+                transform="rotate(-6.24656 578.477 70.7034)"
                 fill="#FFDC85"
               />
-              <rect 
-                x="558.596" 
-                y="72.8795" 
-                width="10" 
-                height="785" 
-                transform="rotate(-6.24656 558.596 72.8795)" 
+              <rect
+                x="558.596"
+                y="72.8795"
+                width="10"
+                height="785"
+                transform="rotate(-6.24656 558.596 72.8795)"
                 fill="#FFDC85"
               />
-              <rect 
-                x="538.715" 
-                y="75.0557" 
-                width="10" 
-                height="785" 
-                transform="rotate(-6.24656 538.715 75.0557)" 
+              <rect
+                x="538.715"
+                y="75.0557"
+                width="10"
+                height="785"
+                transform="rotate(-6.24656 538.715 75.0557)"
                 fill="#FFDC85"
               />
             </svg>
           </div>
-          {index === 0 && <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "-15%", right: -250, width: "45em", height: "auto", zIndex: 10 }} />}
-          {index === 0 && <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: 50, left: -200, width: "40%", height: "auto", zIndex: 10 }} />}
-          {index === 0 && <img src={ticket} alt="Ticket Background" style={{ position: "absolute", top: 500, left: -350, width: "20%", height: "auto", zIndex: 10 }} />}
-          {index === 0 && <img src={pizza} alt="Pizza Background" style={{ position: "absolute", bottom: "42%", right: "-30%", width: "50%", height: "auto", zIndex: 10 }} />}
-          {index === 0 && <img src={note} alt="Note Background" style={{ position: "absolute", top: "20%", right: "-20%", width: "30%", height: "auto", zIndex: 10 }} />}
-          {index === 0 && <img src={pen} alt="Pen Background" style={{ position: "absolute", top: "25%", right: "-20%", width: "18%", height: "auto", zIndex: 10 }} />}
-          {index === 1 && <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "0%", right: "0%", width: "40%", height: "auto", zIndex: 10 }} />}
-          {index === 1 && <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "2%", left: "-30%", width: "45%", height: "auto", zIndex: 10 }} />}
-          {index === 1 && <img src={sticky_note} alt="StickyNote Background" style={{ position: "absolute", top: "30%", left: "-35%", width: "45%", height: "auto", zIndex: 10 }} />}
-          {index === 1 && 
-          <>
-          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
-          <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", bottom: "10%", left:"-50%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(270deg)"}} />
-          <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
-          </>
-          }
-
-          {index === 2 && (
+          {index === 0 && (
             <>
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "0%", left: "-10%", width: "25%", height: "auto", zIndex: 10 }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "11%", left: "-20%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-3%", right: "-25%", width: "60%", height: "auto", zIndex: 10 , transform: "rotate(10deg)"}} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "30%", left: "-30%", width: "45%", height: "auto", zIndex: 10 }} />
-              <img src={yellowpen} alt="Yellow Pen Background" style={{ position: "absolute", top: "35%", right: "-25%", width: "50%", height: "auto", zIndex: 10 , transform: "rotate(10deg)"}} />
-              <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "50%", left:"-75%", width: "45em", height: "auto", zIndex: 10}} />
+              <img
+                src={coffee}
+                alt="Coffee Background"
+                style={{
+                  position: "absolute",
+                  top: "-15%",
+                  right: -250,
+                  width: "45em",
+                  height: "auto",
+                  zIndex: 10,
+                }}
+              />
+              <img
+                src={pencil}
+                alt="Pencil Background"
+                style={{
+                  position: "absolute",
+                  top: 50,
+                  left: -200,
+                  width: "40%",
+                  height: "auto",
+                  zIndex: 10,
+                }}
+              />
+              <img
+                src={ticket}
+                alt="Ticket Background"
+                style={{
+                  position: "absolute",
+                  top: 500,
+                  left: -350,
+                  width: "20%",
+                  height: "auto",
+                  zIndex: 10,
+                }}
+              />
+              <img
+                src={pizza}
+                alt="Pizza Background"
+                style={{
+                  position: "absolute",
+                  bottom: "42%",
+                  right: "-30%",
+                  width: "50%",
+                  height: "auto",
+                  zIndex: 10,
+                }}
+              />
+              <img
+                src={note}
+                alt="Note Background"
+                style={{
+                  position: "absolute",
+                  top: "20%",
+                  right: "-20%",
+                  width: "30%",
+                  height: "auto",
+                  zIndex: 10,
+                }}
+              />
+              <img
+                src={pen}
+                alt="Pen Background"
+                style={{
+                  position: "absolute",
+                  top: "25%",
+                  right: "-20%",
+                  width: "18%",
+                  height: "auto",
+                  zIndex: 10,
+                }}
+              />
             </>
           )}
-
-          {index === 3 && (
-            <>
-              <img src={pizzaslice} alt="Pizza Background" style={{ position: "absolute", top: "6%", left: "-40%", width: "35%", height: "auto", zIndex: 10 }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "30%", right: "-20%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "55%", right: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
-              <img src={note} alt="Note Background" style={{ position: "absolute", top: "10%", right: "-20%", width: "35%", height: "auto", zIndex: 10 }} />
-            </>
-          )}
-
-          {index === 4 && (
-            <>
-              <img src={pizzaquarter} alt="Pizza Background" style={{ position: "absolute", top: "0%", right: "-30%", width: "50%", height: "auto", zIndex: 10 }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "37%", left: "-20%", width: "20%", height: "auto", zIndex: 10, transform: "rotate(40deg)" }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "45%", left: "-30%", width: "20%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "55%", left: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(0deg)" }} />
-              <img src={pinkhighlighter} alt="Pink Highlighter Background" style={{ position: "absolute", top: "10%", left: "-45%", width: "65%", height: "auto", zIndex: 10, transform: "rotate(0deg)" }} />
-              <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-30%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(0deg)" }} />
-            </>
-          )}
-
-          {index === 5 && (
-            <>
-              <img src={pizzaslice} alt="Pizza Background" style={{ position: "absolute", top: "0%", left: "-20%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "45%", left: "-20%", width: "20%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "40%", right: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
-              <img src={note} alt="Note Background" style={{ position: "absolute", top: "22%", left: "-20%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
-              <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: 50, right: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
-            </>
-          )}
-
-          {index === 6 && (
-            <>
-              <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "-20%", left: "-60%", width: "75%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "-5%", left: "30%", width: "15%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "00%", right: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={note} alt="Note Background" style={{ position: "absolute", top: "72%", left: "-25%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: "75%", right: "-35%", width: "40%", height: "auto", zIndex: 10, transform: "rotate(100deg)" }} />
-              <img src={pinkpostit} alt="Pink Post It Background" style={{ position: "absolute", top: "25%", right: "-30%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
-            </>
-          )} 
-
-
-          {index === 7 && (
-            <>
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "-2%", right: "-20%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(30deg)" }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "10%", right: "-25%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "55%", left: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(-10deg)" }} />
-              <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "5%", left: "-25%", width: "40%", height: "auto", zIndex: 10 }} />
-              <img src={note} alt="Note Background" style={{ position: "absolute", top: "70%", right: "-30%", width: "35%", height: "auto", zIndex: 10 }} />
-            </>
-          )} 
-
-
-          {index === 8 && (
-            <>
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "60%", left: "-10%", width: "25%", height: "auto", }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "70%", left: "-20%", width: "25%", height: "auto", transform: "rotate(20deg)" }} />
-              <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-5%", right: "-40%", width: "60%", height: "auto", transform: "rotate(30deg)"}} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto", }} />
-              <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", transform: "rotate(10deg)"}} />
-              <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto",transform: "rotate(-10deg)"}} />
-            </>
-          )}
-
-
-          {index === 9 && (
-            <>
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "60%", left: "-10%", width: "25%", height: "auto"}} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "70%", left: "-20%", width: "25%", height: "auto", transform: "rotate(20deg)" }} />
-              <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-5%", right: "-40%", width: "60%", height: "auto", transform: "rotate(30deg)"}} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto"}} />
-              <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", transform: "rotate(10deg)"}} />
-              <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto", transform: "rotate(-10deg)"}} />
-            </>
-          )}
-
-
           <div className="text-content">
             <p>{slide}</p>
           </div>
