@@ -10,13 +10,16 @@ import stack from "../images/stack.svg";
 import sticky_note from "../images/sticky_note.svg";
 import broken_pencil from "../images/brokenpencil.svg";
 import ticket2 from "../images/ticket2.svg";
-import yellowpen from "../images/yellowpen.svg"
-import pizzaslice from "../images/pizzaslice.svg"
-import pinkhighlighter from "../images/pinkhighlighter.svg"
-import pizzaquarter from "../images/pizzaquarter.svg"
-import record from "../images/record.svg"
-import pinkpostit from "../images/pinkpostit.svg"
-import threequartpizza from "../images/threequartpizza.svg"
+import yellowpen from "../images/yellowpen.svg";
+import pizzaslice from "../images/pizzaslice.svg";
+import pinkhighlighter from "../images/pinkhighlighter.svg";
+import pizzaquarter from "../images/pizzaquarter.svg";
+import record from "../images/record.svg";
+import pinkpostit from "../images/pinkpostit.svg";
+import threequartpizza from "../images/threequartpizza.svg";
+import mail from "../images/mail.svg";
+
+import animation from "../images/animation.gif";
 import "../App.css";
 
 function ScrollingEffect({ slides }) {
@@ -90,7 +93,14 @@ function ScrollingEffect({ slides }) {
           {index === 1 && <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "0%", right: "0%", width: "40%", height: "auto", zIndex: 10 }} />}
           {index === 1 && <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "2%", left: "-30%", width: "45%", height: "auto", zIndex: 10 }} />}
           {index === 1 && <img src={sticky_note} alt="StickyNote Background" style={{ position: "absolute", top: "30%", left: "-35%", width: "45%", height: "auto", zIndex: 10 }} />}
-          
+          {index === 1 && 
+          <>
+          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
+          <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", bottom: "10%", left:"-50%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(270deg)"}} />
+          <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
+          </>
+          }
+
           {index === 2 && (
             <>
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "0%", left: "-10%", width: "25%", height: "auto", zIndex: 10 }} />
