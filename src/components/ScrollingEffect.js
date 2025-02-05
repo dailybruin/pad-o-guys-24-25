@@ -5,6 +5,9 @@ import ticket from "../images/ticket.svg";
 import pizza from "../images/pizza.svg";
 import pen from "../images/pen.svg";
 import note from "../images/note.svg";
+import stain from "../images/stain.svg";
+import stack from "../images/stack.svg";
+import sticky_note from "../images/sticky_note.svg";
 import "../App.css";
 
 function ScrollingEffect({ slides }) {
@@ -75,7 +78,9 @@ function ScrollingEffect({ slides }) {
           {index === 0 && <img src={pizza} alt="Pizza Background" style={{ position: "absolute", bottom: "42%", right: "-30%", width: "50%", height: "auto", zIndex: 10 }} />}
           {index === 0 && <img src={note} alt="Note Background" style={{ position: "absolute", top: "20%", right: "-20%", width: "30%", height: "auto", zIndex: 10 }} />}
           {index === 0 && <img src={pen} alt="Pen Background" style={{ position: "absolute", top: "25%", right: "-20%", width: "18%", height: "auto", zIndex: 10 }} />}
-
+          {index === 1 && <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "0%", right: "0%", width: "40%", height: "auto", zIndex: 10 }} />}
+          {index === 1 && <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "2%", left: "-30%", width: "45%", height: "auto", zIndex: 10 }} />}
+          {index === 1 && <img src={sticky_note} alt="StickyNote Background" style={{ position: "absolute", top: "30%", left: "-35%", width: "45%", height: "auto", zIndex: 10 }} />}
 
 
           <div className="text-content">
