@@ -37,7 +37,7 @@ function ScrollingEffect({ slides }) {
     <div className="scroll-container">
       <div className="sidebar">
         {slides.map((_, index) => (
-          <div key={index} className="sidebar-circle"onClick={() => handleScroll(index)}>
+          <div key={index} className="sidebar-circle"onClick={() => handleScroll(index)}   style={{ position: "relative", zIndex: 9999 }}>
              {/* svg from the Figma */}
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <circle cx="8" cy="8" r="6" stroke="white" stroke-opacity="0.7" stroke-width="4"/>
@@ -169,24 +169,24 @@ function ScrollingEffect({ slides }) {
 
           {index === 8 && (
             <>
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "60%", left: "-10%", width: "25%", height: "auto", zIndex: 10 }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "70%", left: "-20%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-5%", right: "-40%", width: "60%", height: "auto", zIndex: 10 , transform: "rotate(30deg)"}} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto", zIndex: 10 }} />
-              <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", zIndex: 10 , transform: "rotate(10deg)"}} />
-              <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(-10deg)"}} />
+              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "60%", left: "-10%", width: "25%", height: "auto", }} />
+              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "70%", left: "-20%", width: "25%", height: "auto", transform: "rotate(20deg)" }} />
+              <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-5%", right: "-40%", width: "60%", height: "auto", transform: "rotate(30deg)"}} />
+              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto", }} />
+              <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", transform: "rotate(10deg)"}} />
+              <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto",transform: "rotate(-10deg)"}} />
             </>
           )}
 
 
           {index === 9 && (
             <>
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "60%", left: "-10%", width: "25%", height: "auto", zIndex: 10 }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "70%", left: "-20%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-5%", right: "-40%", width: "60%", height: "auto", zIndex: 10 , transform: "rotate(30deg)"}} />
-              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto", zIndex: 10 }} />
-              <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", zIndex: 10 , transform: "rotate(10deg)"}} />
-              <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(-10deg)"}} />
+              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "60%", left: "-10%", width: "25%", height: "auto"}} />
+              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "70%", left: "-20%", width: "25%", height: "auto", transform: "rotate(20deg)" }} />
+              <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-5%", right: "-40%", width: "60%", height: "auto", transform: "rotate(30deg)"}} />
+              <img src={stack} alt="Stack Background" style={{ position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto"}} />
+              <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", transform: "rotate(10deg)"}} />
+              <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto", transform: "rotate(-10deg)"}} />
             </>
           )}
 
