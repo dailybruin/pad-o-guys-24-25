@@ -3,12 +3,16 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollingEffect from "./components/ScrollingEffect";
+import Mobile from "./components/Mobile";
 
 function App() {
   const [data, setData] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/pad-o-guys-24-25")
+    fetch(
+      "https://kerckhoff.dailybruin.com/api/packages/flatpages/pad-o-guys-24-25"
+    )
       .then((res) => res.json())
       .then((res) => setData(res.data["article.aml"]))
       .catch((err) => console.error("Error fetching data:", err));
@@ -32,7 +36,9 @@ function App() {
 
   if (data) {
     const firstArticle = data.articles?.[0] || null;
-    slides = firstArticle?.article_body ? firstArticle.article_body.split("\n").filter(Boolean) : [];
+    slides = firstArticle?.article_body
+      ? firstArticle.article_body.split("\n").filter(Boolean)
+      : [];
   }
 
   // using test slides if API data empty
@@ -40,11 +46,28 @@ function App() {
     slides = testSlides;
   }
 
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="App">
-      <Header />
-      <ScrollingEffect slides={slides} />
-      <Footer/>
+      {windowWidth < 768 ? (
+        <>
+          <Header />
+          <Mobile />
+          <Footer />
+        </>
+      ) : (
+        <>
+          <Header />
+          <ScrollingEffect slides={slides} />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
