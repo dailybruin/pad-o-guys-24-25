@@ -5,15 +5,24 @@ import Footer from "./components/Footer";
 import ScrollingEffect from "./components/ScrollingEffect";
 import Landing from './components/Landing';
 import PhotoStack from "./components/PhotoStack";
+import MobileSlide from "./components/MobileSlide";
 
 function App() {
   const [data, setData] = useState(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
     fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/pad-o-guys-24-25")
       .then((res) => res.json())
       .then((res) => setData(res.data["article.aml"]))
       .catch((err) => console.error("Error fetching data:", err));
+      
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+
   }, []);
 
   // hard code in the test slides
@@ -52,13 +61,13 @@ function App() {
     slides = testSlides;
   }
 
-  return (
+  return data && (
     <div className="App">
       <Header />
       {/*<Landing landing={data.landing_image} credits={data.landing_credits}/>*/}
       <Landing/>
       <PhotoStack images={data.images}/>
-      <ScrollingEffect slides={slides} />
+      {screenWidth < 700 ? <MobileSlide slides={slides} /> : <ScrollingEffect slides={slides} />}
       <Footer/>
     </div>
   );
