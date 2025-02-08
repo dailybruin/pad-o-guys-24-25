@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import landing_video from "../images/Video.mp4"; // Import your video file
 
 const Container = styled.div`
   width: 100%;
@@ -12,42 +12,38 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background: #d5e7f2;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
 `;
 
-const Image = styled.img`
-  width: 100vw;
+const Video = styled.video`
+  width: 100%;
   height: auto;
   object-fit: cover;
 `;
 
-
 const Credits = styled.div`
-  background: #4F2F1C;
-  color: white;
-  width: 100%;
-  padding: 1em;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 28.91px;
-
+position: absolute;
+bottom: 0px; 
+width: 150%;
+background: #4F2F1C;
+color: white;
+padding: 1em;
+font-family: Arial, sans-serif;
+font-size: 16px;
+font-weight: 400;
+line-height: 28.91px;
+z-index: 1; 
 `;
 
-const Landing = ({landing, credits}) => {
-    
-    return (
-        <>
-            <Container>
-                {/*<Image src={Video} alt="Landing image" />*/}
-                <Image/>
-                <Credits>ILO CREDITS </Credits> {/*landing.landing_credits*/}
-            </Container>
-            
-            
-        </>
-    );
-}
+const Landing = ({ credits }) => {
+  return (
+    <Container>
+      <Video autoPlay loop muted>
+        <source src={landing_video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </Video>
+      <Credits>ILO CREDITS HERE</Credits>
+    </Container>
+  );
+};
+
 export default Landing;

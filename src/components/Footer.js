@@ -83,7 +83,7 @@ const Footer = () => {
             <img src={email} alt="Email" />
           </a>
           <p>
-          Built with Suzy’s <span className="heart">♥</span> in Kerckhoff 118 by Emily Zhang,  Kirsten Reign Cabalonga, Richelle Shim, Sahil Sheth, Evelyn Cho, Armaan Bassi, Jennifer Lee, Henry Nguyen, Max Fukuhara, Ritvik Irigireddy, and Sakshi Thoutireddy. Designed by Armaan Dhillon. Illustrated by Helen Juwon Park.
+          Built with Suzy’s <span className="heart">♥</span> in Kerckhoff 118 by Kirsten Reign Cabalonga, Sahil Sheth, Evelyn Cho, Armaan Bassi, Jennifer Lee, Henry Nguyen, Max Fukuhara, Ritvik Irigireddy, and Sakshi Thoutireddy. Designed by Armaan Dhillon. Illustrated by Helen Juwon Park.
           </p>
         </Socials>
       </Container>
