@@ -58,7 +58,7 @@ function App() {
       {windowWidth < 768 ? (
         <>
           <Header />
-          <Mobile />
+          <Mobile slides = {testSlides}/>
           <Footer />
         </>
       ) : (
