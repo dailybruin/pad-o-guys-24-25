@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollingEffect from "./components/ScrollingEffect";
+import Landing from './components/Landing';
 
 function App() {
   const [data, setData] = useState(null);
@@ -53,6 +54,8 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {/*<Landing landing={data.landing_image} credits={data.landing_credits}/>*/}
+      <Landing/>
       <ScrollingEffect slides={slides} />
       <Footer/>
     </div>
