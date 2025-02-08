@@ -131,9 +131,9 @@ function ScrollingEffect({ slides }) {
                 alt="Coffee Background"
                 style={{
                   position: "absolute",
-                  top: "-10%",
+                  top: "-15%",
                   right: "-25%",
-                  width: "70%",
+                  width: "20%",
                   height: "auto",
                   zIndex: 10,
                 }}
