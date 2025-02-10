@@ -101,6 +101,19 @@ body {
   fill: #ffffffb3;
 }
 
+.sidebar-circle-svg circle {
+  fill: transparent;
+  stroke: gray;
+  stroke-width: 4;
+  transition: fill 0.3s, stroke 0.3s;
+}
+
+.sidebar-circle-svg.active-circle circle {
+  fill: white;
+}
+
+
+
 /* Scroll container */
 .scroll-container {
   display: flex;

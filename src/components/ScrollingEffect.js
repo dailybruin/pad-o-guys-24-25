@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../App.css";
 import coffee from "../images/coffee.svg";
 import pencil from "../images/pencil.svg";
@@ -24,6 +24,38 @@ import animation from "../images/animation.gif";
 
 function ScrollingEffect({ slides }) {
   const papersRef = useRef([]);
+  const [activeSlide, setActiveSlide] = useState(0);  
+
+  useEffect(() => {
+    
+    const options = {
+      root: null,       
+      rootMargin: "0px",
+      threshold: 0.5,   
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+       
+        if (entry.isIntersecting) {
+          const slideIndex = Number(entry.target.getAttribute("data-index"));
+          setActiveSlide(slideIndex);
+        }
+      });
+    }, options);
+
+
+    papersRef.current.forEach((paper) => {
+      if (paper) observer.observe(paper);
+    });
+
+  
+    return () => {
+      papersRef.current.forEach((paper) => {
+        if (paper) observer.unobserve(paper);
+      });
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +67,7 @@ function ScrollingEffect({ slides }) {
         document.body.classList.add("show-fade");
       } else {
         document.body.classList.remove("show-fade");
-      }
+      } 
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -58,6 +90,9 @@ function ScrollingEffect({ slides }) {
             onClick={() => handleScrollToSlide(index)}
           >
             <svg
+              className={`sidebar-circle-svg ${
+                activeSlide === index ? "active-circle" : ""
+              }`}
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -81,6 +116,7 @@ function ScrollingEffect({ slides }) {
         <div
           key={index}
           className="paper"
+          data-index={index}
           ref={(el) => (papersRef.current[index] = el)}
         >
           <div className="folder-background">
