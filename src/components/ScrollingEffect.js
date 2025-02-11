@@ -7,7 +7,6 @@ import pizza from "../images/pizza.svg";
 import pen from "../images/pen.svg";
 import note from "../images/note.svg";
 import stain from "../images/stain.svg";
-import stack from "../images/stack.svg";
 import sticky_note from "../images/sticky_note.svg";
 import broken_pencil from "../images/brokenpencil.svg";
 import ticket2 from "../images/ticket2.svg";
