@@ -125,7 +125,7 @@ body {
   margin-right: auto;
   width: 100%;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+ /* scroll-snap-type: y proximity; */
   scroll-behavior: smooth;
 }
 
@@ -190,6 +190,7 @@ body {
   height: auto; 
   transform: translate(-50%, -50%); 
   z-index: -1; 
+  pointer-events: none;
 }
 
 .coffee-background {
@@ -262,7 +263,7 @@ body {
 }
 
 .fade-overlay {
-  position: fixed;
+ /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -275,7 +276,7 @@ body {
   font-size: 2rem;
   opacity: 0;
   visibility: hidden;
-  z-index: 1000;
+  z-index: 5;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
