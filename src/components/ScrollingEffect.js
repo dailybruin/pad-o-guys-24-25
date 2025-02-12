@@ -212,9 +212,9 @@ function ScrollingEffect({ slides, photoStackOne, photoStackTwo, photoStackThree
                 alt="Pizza Background"
                 style={{
                   position: "absolute",
-                  bottom: "42%",
+                  bottom: "30%",
                   right: "-30%",
-                  width: "50%",
+                  width: "45%",
                   height: "auto",
                 }}
               />
@@ -260,7 +260,7 @@ function ScrollingEffect({ slides, photoStackOne, photoStackTwo, photoStackThree
           {index === 1 && <img src={sticky_note} alt="StickyNote Background" style={{ position: "absolute", top: "30%", left: "-35%", width: "45%", height: "auto"}} />}
           {index === 1 && 
           <>
-          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-30%", width: "60%", height: "auto" }} />
+          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-30%", width: "50%", height: "auto" }} />
           <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", bottom: "10%", left:"-50%", width: "60%", height: "auto", transform: "rotate(270deg)"}} />
           <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "60%", height: "auto" }} />
           </>

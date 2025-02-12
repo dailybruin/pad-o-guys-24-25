@@ -80,7 +80,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
                 alt="Pencil Background"
                 style={{
                   position: "absolute",
-                  top: 50,
+                  top: 120,
                   left: -100,
                   width: "40%",
                   height: "auto",
@@ -105,8 +105,8 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
                 style={{
                   position: "absolute",
                   bottom: "42%",
-                  right: "-30%",
-                  width: "50%",
+                  right: "-22%",
+                  width: "30%",
                   height: "auto",
                   zIndex: 10,
                 }}
@@ -147,7 +147,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
                 <PhotoStack images={photoStackOne} />
               </div>
             </div>
-          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
+          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-25%", width: "40%", height: "auto", zIndex: 10 }} />
           <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", bottom: "10%", left:"-50%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(270deg)"}} />
           <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
           </>
@@ -164,7 +164,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
               </div>
             </div>
               <img src={yellowpen} alt="Yellow Pen Background" style={{ position: "absolute", top: "35%", right: "-25%", width: "50%", height: "auto", zIndex: 10 , transform: "rotate(10deg)"}} />
-              <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "60%", left:"-35%", width: "100%", height: "auto", zIndex: 10, transform: "rotate(90deg)"}} />
+              <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "60%", left:"-35%", width: "85%", height: "auto", zIndex: 10, transform: "rotate(90deg)"}} />
             </>
           )}
 
