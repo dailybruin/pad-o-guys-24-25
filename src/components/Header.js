@@ -27,7 +27,7 @@ const DBHeader = styled("div")`
 
   h1 {
     background: white;
-    width: 108px;
+    width: 20%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

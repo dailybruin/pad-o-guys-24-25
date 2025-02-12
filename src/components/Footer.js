@@ -58,12 +58,18 @@ const FadeOverlay = styled.div`
 `;
 
 const Text = styled.div`
-  font-family: Courier Prime;
+  font-family: 'Courier Prime', monospace;
   font-weight: 700;
-  font-size: 50px;
-  line-height: 56.15px;
-  letter-spacing: 0%;
+  font-size: 3.125rem;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem; 
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+  }
 `
 
 const Footer = () => {

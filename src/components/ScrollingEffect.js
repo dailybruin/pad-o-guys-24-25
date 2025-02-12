@@ -21,7 +21,7 @@ import mail from "../images/mail.svg";
 import animation from "../images/animation.gif";
 import PhotoStack from "./PhotoStack";
 
-function ScrollingEffect({ slides, photoStackImages }) {
+function ScrollingEffect({ slides, photoStackOne, photoStackTwo, photoStackThree, photoStackFour, photoStackFive, photoStackSix}) {
   const papersRef = useRef([]);
   const [activeSlide, setActiveSlide] = useState(0);  
 
@@ -169,6 +169,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
             <>
               <div className="header">
                 <h1>The Pad O’ Guys</h1>
+                <p>BY NATALIE RALSTON</p>
               </div>
               <img
                 src={coffee}
@@ -253,7 +254,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
                 zIndex: 10,
               }}
             >
-              <PhotoStack images={photoStackImages} />
+              <PhotoStack images={photoStackOne} />
             </div>
           )}
           {index === 1 && <img src={sticky_note} alt="StickyNote Background" style={{ position: "absolute", top: "30%", left: "-35%", width: "45%", height: "auto"}} />}
@@ -275,7 +276,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
                 position: "absolute", top: "30%", left: "-30%", width: "45%", height: "auto", zIndex: 10
               }}
             >
-              <PhotoStack images={photoStackImages} />
+              <PhotoStack images={photoStackTwo} />
             </div>
               <img src={yellowpen} alt="Yellow Pen Background" style={{ position: "absolute", top: "35%", right: "-25%", width: "70%", height: "auto", transform: "rotate(10deg)"}} />
               <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "50%", left:"-75%", width: "45em", height: "auto", zIndex: 10}} />
@@ -291,7 +292,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
                 position: "absolute", top: "55%", right: "-35%", width: "45%", height: "auto", transform: "rotate(20deg)"
               }}
             >
-              <PhotoStack images={photoStackImages} />
+              <PhotoStack images={photoStackThree} />
             </div>
             
               <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto"}} />
@@ -309,7 +310,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
                 position: "absolute", top: "55%", left: "-35%", width: "45%", height: "auto", transform: "rotate(0deg)"
               }}
             >
-              <PhotoStack images={photoStackImages} />
+              <PhotoStack images={photoStackFour} />
             </div>
               <img src={pinkhighlighter} alt="Pink Highlighter Background" style={{ position: "absolute", top: "10%", left: "-45%", width: "65%", height: "auto", transform: "rotate(0deg)" }} />
               <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-30%", width: "35%", height: "auto", transform: "rotate(0deg)" }} />
@@ -325,7 +326,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
                 position: "absolute", top: "40%", right: "-35%", width: "45%", height: "auto", transform: "rotate(20deg)"
               }}
             >
-              <PhotoStack images={photoStackImages} />
+              <PhotoStack images={photoStackFive} />
             </div>
               <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto"}} />
               <img src={note} alt="Note Background" style={{ position: "absolute", top: "22%", left: "-20%", width: "35%", height: "auto", transform: "rotate(-20deg)" }} />
@@ -341,7 +342,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
                 position: "absolute", top: "00%", right: "-35%", width: "45%", height: "auto", transform: "rotate(20deg)"
               }}
             >
-              <PhotoStack images={photoStackImages} />
+              <PhotoStack images={photoStackSix} />
             </div>
               <img src={note} alt="Note Background" style={{ position: "absolute", top: "72%", left: "-25%", width: "35%", height: "auto", transform: "rotate(20deg)" }} />
               <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: "75%", right: "-35%", width: "40%", height: "auto", transform: "rotate(100deg)" }} />
@@ -370,7 +371,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
                 position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto"
               }}
             >
-              <PhotoStack images={photoStackImages} />
+              <PhotoStack images={photoStackSix} />
             </div>
               <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", transform: "rotate(10deg)"}} />
               <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto",transform: "rotate(-10deg)"}} />
