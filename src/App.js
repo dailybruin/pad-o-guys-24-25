@@ -52,20 +52,34 @@ function App() {
   let slides = [];
 
   if (data) {
-    const firstArticle = data.articles?.[0] || null;
+    const firstArticle = data.text?.[0] || null;
     slides = firstArticle?.article_body ? firstArticle.article_body.split("\n").filter(Boolean) : [];
   }
 
   // using test slides if API data empty
-  if (slides.length === 0) {
-    slides = testSlides;
+
+  if(data)
+  {
+    console.log(data.text[0]);
+    slides = [
+      data.text[0]?.slide_one || "",
+      data.text[0]?.slide_two || "",
+      data.text[0]?.slide_three || "",
+      data.text[0]?.slide_four|| "",
+      data.text[0]?.slide_five || "",
+      data.text[0]?.slide_six || "",
+      data.text[0]?.slide_seven || "",
+      data.text[0]?.slide_eight || "",
+    ];
   }
+
+  
 
   return data && (
     <div className="App">
       <Header />
       {/*<Landing landing={data.landing_image} credits={data.landing_credits}/>*/}
-      <Landing/>
+      <Landing credits={data.landing_credits}/>
       {screenWidth < 700 ? <MobileSlide slides={slides} photoStackImages={data.photo_stack_two} /> : <ScrollingEffect slides={slides} photoStackImages={data.photo_stack_two} />}
       <Footer/>
     </div>

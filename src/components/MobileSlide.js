@@ -287,7 +287,9 @@ function ScrollingEffect({ slides, photoStackImages }) {
             </>
           )}
           <div className="text-content">
-            <p>{slide}</p>
+          {slide.split('<p>').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
           </div>
         </div>
       ))}

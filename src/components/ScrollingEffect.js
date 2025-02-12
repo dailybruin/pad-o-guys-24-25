@@ -118,6 +118,11 @@ function ScrollingEffect({ slides, photoStackImages }) {
           className="paper"
           data-index={index}
           ref={(el) => (papersRef.current[index] = el)}
+          style={{
+            width: '100%', 
+            height: '150vh', 
+            position: 'relative', 
+          }}
         >
           <div className="folder-background">
             {/* Embedded SVG for background */}
@@ -328,7 +333,6 @@ function ScrollingEffect({ slides, photoStackImages }) {
           {index === 6 && (
             <>
               <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "-20%", left: "-60%", width: "75%", height: "auto", transform: "rotate(-20deg)" }} />
-              <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "-5%", left: "30%", width: "15%", height: "auto", transform: "rotate(10deg)" }} />
               <div
               style={{
                 position: "absolute", top: "00%", right: "-35%", width: "45%", height: "auto", transform: "rotate(20deg)"
@@ -395,7 +399,9 @@ function ScrollingEffect({ slides, photoStackImages }) {
             </>
           )}
           <div className="text-content">
-            <p>{slide}</p>
+          {slide.split('<p>').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
           </div>
         </div>
       ))}

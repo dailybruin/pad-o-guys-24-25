@@ -41,7 +41,7 @@ const Landing = ({ credits }) => {
         <source src={landing_video} type="video/mp4" />
         Your browser does not support the video tag.
       </Video>
-      <Credits>ILO CREDITS HERE</Credits>
+      <Credits>{credits}</Credits>
     </Container>
   );
 };
