@@ -24,13 +24,19 @@ const Container = styled.div`
 const Socials = styled.div`
   position: relative;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
+    position: relative;
     margin: 0 20px;
   }
-
   p {
-    margin: 80px 20px;
+    display: block;
+    margin-top: 20px; 
+    text-align: center;
+    
   }
 `;
 
@@ -60,7 +66,7 @@ const FadeOverlay = styled.div`
 const Text = styled.div`
   font-family: 'Courier Prime', monospace;
   font-weight: 700;
-  font-size: 3.125rem;
+  font-size: 2.5rem;
   line-height: 1.15;
   letter-spacing: 0.05em;
   text-align: center;
@@ -70,6 +76,11 @@ const Text = styled.div`
     line-height: 1.2;
     letter-spacing: 0.04em;
   }
+`
+
+const Credits = styled.div`
+  margin-top: 3em;
+  padding: 2em;
 `
 
 const Footer = () => {
@@ -98,10 +109,10 @@ Now we’re friends, but it’s different. We’re still together, but it’s no
           <a href="http://eepurl.com/cFEiZX" target="_blank" rel="noreferrer">
             <img src={email} alt="Email" />
           </a>
-          <p>
-          Built with Suzy’s <span className="heart">♥</span> in Kerckhoff 118 by Kirsten Reign Cabalonga, Sahil Sheth, Evelyn Cho, Armaan Bassi, Jennifer Lee, Henry Nguyen, Max Fukuhara, Ritvik Irigireddy, and Sakshi Thoutireddy. Designed by Armaan Dhillon. Illustrated by Helen Juwon Park.
-          </p>
         </Socials>
+        <Credits>
+            Built with Suzy’s <span className="heart">♥</span> in Kerckhoff 118 by Kirsten Reign Cabalonga, Sahil Sheth, Evelyn Cho, Armaan Bassi, Jennifer Lee, Henry Nguyen, Max Fukuhara, Ritvik Irigireddy, and Sakshi Thoutireddy. Designed by Armaan Dhillon. Illustrated by Helen Juwon Park.
+        </Credits>
       </Container>
     </>
   );
