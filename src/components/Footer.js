@@ -57,11 +57,21 @@ const FadeOverlay = styled.div`
   }
 `;
 
+const Text = styled.div`
+  font-family: Courier Prime;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 56.15px;
+  letter-spacing: 0%;
+  text-align: center;
+`
+
 const Footer = () => {
   return (
     <>
       <FadeOverlay className="fade-overlay">
-        <h1>Convallis pulvinar, justo nulla eleifend augue.</h1>
+        <Text>“I talk to students who are looking up on the stage to see someone giving them advice. The inconvenient truth is that the guy on the stage would give anything to be sitting where they are ... at the start of something, and all those things lying ahead of you. Your first sale, your first preview, your first premiere – all those things. To be part of a group of friends.
+Now we’re friends, but it’s different. We’re still together, but it’s not about getting into a business anymore.” - Shane Black.</Text>
       </FadeOverlay>
 
       <Container>

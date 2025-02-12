@@ -167,6 +167,9 @@ function ScrollingEffect({ slides, photoStackImages }) {
           </div>
           {index === 0 && (
             <>
+              <div className="header">
+                <h1>The Pad O’ Guys</h1>
+              </div>
               <img
                 src={coffee}
                 alt="Coffee Background"
@@ -351,13 +354,6 @@ function ScrollingEffect({ slides, photoStackImages }) {
             <>
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "-2%", right: "-20%", width: "25%", height: "auto", transform: "rotate(30deg)" }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "10%", right: "-25%", width: "25%", height: "auto", transform: "rotate(20deg)" }} />
-              <div
-              style={{
-                position: "absolute", top: "55%", left: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(-10deg)"
-              }}
-            >
-              <PhotoStack images={photoStackImages} />
-            </div>
               <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "5%", left: "-25%", width: "40%", height: "auto"}} />
               <img src={note} alt="Note Background" style={{ position: "absolute", top: "70%", right: "-30%", width: "35%", height: "auto"}} />
             </>
@@ -387,13 +383,6 @@ function ScrollingEffect({ slides, photoStackImages }) {
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "60%", left: "-10%", width: "25%", height: "auto"}} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "70%", left: "-20%", width: "25%", height: "auto", transform: "rotate(20deg)" }} />
               <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-5%", right: "-40%", width: "60%", height: "auto", transform: "rotate(30deg)"}} />
-              <div
-              style={{
-                position: "absolute", top: "75%", right: "-30%", width: "45%", height: "auto"
-              }}
-            >
-              <PhotoStack images={photoStackImages} />
-            </div>
               <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-35%", width: "35%", height: "auto", transform: "rotate(10deg)"}} />
               <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-5%", left:"-35%", width: "60%", height: "auto", transform: "rotate(-10deg)"}} />
             </>
