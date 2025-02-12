@@ -66,8 +66,7 @@ function App() {
       <Header />
       {/*<Landing landing={data.landing_image} credits={data.landing_credits}/>*/}
       <Landing/>
-      <PhotoStack images={data.images}/>
-      {screenWidth < 700 ? <MobileSlide slides={slides} /> : <ScrollingEffect slides={slides} />}
+      {screenWidth < 700 ? <MobileSlide slides={slides} photoStackImages={data.images} /> : <ScrollingEffect slides={slides} photoStackImages={data.images} />}
       <Footer/>
     </div>
   );
