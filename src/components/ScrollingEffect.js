@@ -10,9 +10,9 @@ import stain from "../images/stain.svg";
 import sticky_note from "../images/sticky_note.svg";
 import broken_pencil from "../images/brokenpencil.svg";
 import ticket2 from "../images/ticket2.svg";
-import yellowpen from "../images/yellowpen.svg";
+import yellowpen from "../images/yellowhighlighter.gif";
 import pizzaslice from "../images/pizzaslice.svg";
-import pinkhighlighter from "../images/pinkhighlighter.svg";
+import pinkhighlighter from "../images/pinkhighighter.gif";
 import pizzaquarter from "../images/pizzaquarter.svg";
 import record from "../images/record.svg";
 import pinkpostit from "../images/pinkpostit.svg";
@@ -269,7 +269,7 @@ function ScrollingEffect({ slides, photoStackImages }) {
             >
               <PhotoStack images={photoStackImages} />
             </div>
-              <img src={yellowpen} alt="Yellow Pen Background" style={{ position: "absolute", top: "35%", right: "-25%", width: "50%", height: "auto", transform: "rotate(10deg)"}} />
+              <img src={yellowpen} alt="Yellow Pen Background" style={{ position: "absolute", top: "35%", right: "-25%", width: "70%", height: "auto", transform: "rotate(10deg)"}} />
               <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "50%", left:"-75%", width: "45em", height: "auto", zIndex: 10}} />
             </>
           )}
