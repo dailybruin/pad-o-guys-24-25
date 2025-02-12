@@ -138,14 +138,15 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
             </>
           )}
           {index === 1 && <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "0%", right: "0%", width: "40%", height: "auto", zIndex: 10 }} />}
-          <div style={{ position: "absolute", top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
+         
+          {index === 1 && <img src={sticky_note} alt="StickyNote Background" style={{ position: "absolute", top: "30%", left: "-35%", width: "45%", height: "auto", zIndex: 10 }} />}
+          {index === 1 && 
+          <>
+           <div style={{ top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
               <div className="photo-stack-container">
                 <PhotoStack images={photoStackOne} />
               </div>
             </div>
-          {index === 1 && <img src={sticky_note} alt="StickyNote Background" style={{ position: "absolute", top: "30%", left: "-35%", width: "45%", height: "auto", zIndex: 10 }} />}
-          {index === 1 && 
-          <>
           <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
           <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", bottom: "10%", left:"-50%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(270deg)"}} />
           <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
@@ -157,12 +158,10 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "0%", left: "-10%", width: "25%", height: "auto", zIndex: 10 }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "11%", left: "-20%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
               <img src={broken_pencil} alt="Broken Pencil Background" style={{ position: "absolute", top: "-3%", right: "-25%", width: "60%", height: "auto", zIndex: 10 , transform: "rotate(10deg)"}} />
-              <div
-              style={{
-                position: "absolute", top: "30%", left: "-30%", width: "45%", height: "auto", zIndex: 10
-              }}
-            >
-              <PhotoStack images={photoStackTwo} />
+              <div style={{ top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
+              <div className="photo-stack-container">
+                <PhotoStack images={photoStackTwo} />
+              </div>
             </div>
               <img src={yellowpen} alt="Yellow Pen Background" style={{ position: "absolute", top: "35%", right: "-25%", width: "50%", height: "auto", zIndex: 10 , transform: "rotate(10deg)"}} />
               <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "60%", left:"-35%", width: "100%", height: "auto", zIndex: 10, transform: "rotate(90deg)"}} />
@@ -173,12 +172,10 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
             <>
               <img src={pizzaslice} alt="Pizza Background" style={{ position: "absolute", top: "6%", left: "-40%", width: "35%", height: "auto", zIndex: 10 }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "30%", right: "-20%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <div
-              style={{
-                position: "absolute", top: "55%", right: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(20deg)"
-              }}
-            >
-              <PhotoStack images={photoStackThree} />
+              <div style={{ top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
+              <div className="photo-stack-container">
+                <PhotoStack images={photoStackThree} />
+              </div>
             </div>
               <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
               <img src={note} alt="Note Background" style={{ position: "absolute", top: "10%", right: "-20%", width: "35%", height: "auto", zIndex: 10 }} />
@@ -190,12 +187,10 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
               <img src={pizzaquarter} alt="Pizza Background" style={{ position: "absolute", top: "0%", right: "-30%", width: "50%", height: "auto", zIndex: 10 }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "37%", left: "-20%", width: "20%", height: "auto", zIndex: 10, transform: "rotate(40deg)" }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "45%", left: "-30%", width: "20%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
-              <div
-              style={{
-                position: "absolute", top: "55%", left: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(0deg)"
-              }}
-            >
-              <PhotoStack images={photoStackFour} />
+              <div style={{ top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
+              <div className="photo-stack-container">
+                <PhotoStack images={photoStackFour} />
+              </div>
             </div>
               <img src={pinkhighlighter} alt="Pink Highlighter Background" style={{ position: "absolute", top: "10%", left: "-45%", width: "65%", height: "auto", zIndex: 10, transform: "rotate(0deg)" }} />
               <img src={record} alt="Record Background" style={{ position: "absolute", top: "45%", right: "-30%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(0deg)" }} />
@@ -206,12 +201,10 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
             <>
               <img src={pizzaslice} alt="Pizza Background" style={{ position: "absolute", top: "0%", left: "-20%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "45%", left: "-20%", width: "20%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
-              <div
-              style={{
-                position: "absolute", top: "40%", right: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(20deg)"
-              }}
-            >
-              <PhotoStack images={photoStackFive} />
+              <div style={{ top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
+              <div className="photo-stack-container">
+                <PhotoStack images={photoStackFive} />
+              </div>
             </div>
               <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
               <img src={note} alt="Note Background" style={{ position: "absolute", top: "22%", left: "-20%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
@@ -223,12 +216,10 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
             <>
               <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "-20%", left: "-60%", width: "75%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "-5%", left: "30%", width: "15%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
-              <div
-              style={{
-                position: "absolute", top: "00%", right: "-35%", width: "45%", height: "auto", zIndex: 10, transform: "rotate(20deg)"
-              }}
-            >
-              <PhotoStack images={photoStackSix} />
+              <div style={{ top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
+              <div className="photo-stack-container">
+                <PhotoStack images={photoStackSix} />
+              </div>
             </div>
               <img src={note} alt="Note Background" style={{ position: "absolute", top: "72%", left: "-25%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
               <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: "75%", right: "-15%", width: "40%", height: "auto", zIndex: 10, transform: "rotate(100deg)" }} />

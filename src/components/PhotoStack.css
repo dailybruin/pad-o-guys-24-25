@@ -69,3 +69,17 @@
     z-index: 0;
   }
   
+
+
+img, .photo-stack-container {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px; 
+}
+
+.text-content {
+  overflow: hidden;
+  clear: both;
+}
+
+
