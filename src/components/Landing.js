@@ -37,9 +37,8 @@ z-index: 1;
 const Landing = ({ credits }) => {
   return (
     <Container>
-      <Video autoPlay loop muted>
-        <source src={landing_video} type="video/mp4" />
-        Your browser does not support the video tag.
+      <Video autoPlay loop muted playsInline>
+        <source src={landing_video} type="video/mp4" alt="Video Could Not Load"/>
       </Video>
       <Credits>{credits}</Credits>
     </Container>

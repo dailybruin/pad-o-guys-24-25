@@ -33,6 +33,11 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
           key={index}
           className="paper"
           ref={(el) => (papersRef.current[index] = el)}
+          style={{
+            width: 'fit-content', 
+            height: 'fit-content', 
+            position: 'relative', 
+          }}
         >
           
           {index === 0 && (
@@ -84,7 +89,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
                   position: "absolute",
                   bottom: "42%",
                   right: "-22%",
-                  width: "30%",
+                  width: "25%",
                   height: "auto",
                   zIndex: 10,
                 }}
@@ -125,7 +130,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
                 <PhotoStack images={photoStackOne} />
               </div>
             </div>
-          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-25%", width: "40%", height: "auto", zIndex: 10 }} />
+          <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-25%", width: "35%", height: "auto", zIndex: 10 }} />
           <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", bottom: "10%", left:"-50%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(270deg)"}} />
           <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "45%", height: "auto", zIndex: 10 }} />
           </>

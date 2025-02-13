@@ -120,7 +120,7 @@ function ScrollingEffect({ slides, photoStackOne, photoStackTwo, photoStackThree
           ref={(el) => (papersRef.current[index] = el)}
           style={{
             width: '100%', 
-            height: '150vh', 
+            height: 'fit-content', 
             position: 'relative', 
           }}
         >
