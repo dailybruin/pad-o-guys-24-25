@@ -251,19 +251,32 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
     marginTop: "5px" 
   }}
 >
-  {slide.split('<p>').map((line, index) => (
-    <p 
-      key={index}
-      style={{
-        marginBottom: "10px", 
-        textAlign: "justify", 
-        fontSize: "16px", 
-        lineHeight: "1.5", 
-      }}
-    >
-      {line}
-    </p>
-  ))}
+{slide.split('<p>').map((line, index) => (
+  <p 
+    key={index}
+    style={{
+      marginBottom: "10px", 
+      textAlign: "justify", 
+      fontSize: "16px", 
+      lineHeight: "1.5", 
+    }}
+  >
+    {line}
+  </p>
+))}
+{slide.split('<p>').length > 1 && (
+  <p 
+    style={{
+      marginBottom: "10px", 
+      textAlign: "justify", 
+      fontSize: "16px", 
+      lineHeight: "1.5", 
+    }}
+  >
+    “I talk to students who are looking up on the stage to see someone giving them advice. The inconvenient truth is that the guy on the stage would give anything to be sitting where they are ... at the start of something, and all those things lying ahead of you. Your first sale, your first preview, your first premiere – all those things. To be part of a group of friends.
+Now we’re friends, but it’s different. We’re still together, but it’s not about getting into a business anymore.” - Shane Black.
+  </p>
+)}
 </div>
         </div>
       ))}
