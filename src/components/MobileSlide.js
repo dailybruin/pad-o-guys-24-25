@@ -244,7 +244,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
               <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", top: "-10%", left:"-12%", width: "40%", height: "auto", transform: "rotate(-90deg)"}} />
             </>
           )}
-          <div 
+  <div 
   className="text-content" 
   style={{
     overflow: "hidden", 
@@ -264,7 +264,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
     {line}
   </p>
 ))}
-{slide.split('<p>').length > 1 && (
+{index === slides.length - 1 &&  (
   <p 
     style={{
       marginBottom: "10px", 
