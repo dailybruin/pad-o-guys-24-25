@@ -119,7 +119,7 @@ function ScrollingEffect({ slides, photoStackOne, photoStackTwo, photoStackThree
           data-index={index}
           ref={(el) => (papersRef.current[index] = el)}
           style={{
-            width: '100%', 
+            width: 'fit-content', 
             height: 'fit-content', 
             position: 'relative', 
           }}

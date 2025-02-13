@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import landing_video from "../images/Video.mp4"; // Import your video file
+import still_video from "../images/still.png";
 
 const Container = styled.div`
   width: 100%;
@@ -38,7 +39,8 @@ const Landing = ({ credits }) => {
   return (
     <Container>
       <Video autoPlay loop muted playsInline>
-        <source src={landing_video} type="video/mp4" alt="Video Could Not Load"/>
+        <source src={landing_video} type="video/mp4" />
+        <img src={still_video} alt="Video could not load" />
       </Video>
       <Credits>{credits}</Credits>
     </Container>
