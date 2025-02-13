@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import landing_video from "../images/Video.mp4"; // Import your video file
-
+import still_video from "../images/still.png";
+import ticket from "../images/ticket.svg";
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ const Container = styled.div`
   background: #d5e7f2;
 `;
 
-const Video = styled.video`
+const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -35,15 +35,13 @@ line-height: 28.91px;
 z-index: 1; 
 `;
 
-const Landing = ({ credits }) => {
+const MobileLanding = ({ credits }) => {
   return (
     <Container>
-      <Video autoPlay loop muted playsInline>
-        <source src={landing_video} type="video/mp4" />
-      </Video>
+        <Image src={still_video}/>
       <Credits>{credits}</Credits>
     </Container>
   );
 };
 
-export default Landing;
+export default MobileLanding;

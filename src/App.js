@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollingEffect from "./components/ScrollingEffect";
 import Landing from './components/Landing';
+import MobileLanding from './components/MobileLanding';
 import MobileSlide from "./components/MobileSlide";
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
     <div className="App">
       <Header />
       {/*<Landing landing={data.landing_image} credits={data.landing_credits}/>*/}
-      <Landing credits={data.landing_credits}/>
+      {screenWidth < 950 ?  <MobileLanding credits={data.landing_credits}/>: <Landing credits={data.landing_credits}/>}
       {screenWidth < 950 ? <MobileSlide slides={slides} photoStackOne={data.photo_stack_one} photoStackTwo={data.photo_stack_two} photoStackThree={data.photo_stack_three} photoStackFour={data.photo_stack_four} photoStackFive={data.photo_stack_five} photoStackSix={data.photo_stack_six} photoStackImages={data.photo_stack_two} /> : <ScrollingEffect slides={slides} photoStackOne={data.photo_stack_one} photoStackTwo={data.photo_stack_two} photoStackThree={data.photo_stack_three} photoStackFour={data.photo_stack_four} photoStackFive={data.photo_stack_five} photoStackSix={data.photo_stack_six} />}
       <Footer/>
     </div>
