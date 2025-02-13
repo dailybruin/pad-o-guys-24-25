@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "../App.css";
 import coffee from "../images/coffee.svg";
 import pencil from "../images/pencil.svg";
@@ -7,7 +7,6 @@ import pizza from "../images/pizza.svg";
 import pen from "../images/pen.svg";
 import note from "../images/note.svg";
 import stain from "../images/stain.svg";
-
 import sticky_note from "../images/sticky_note.svg";
 import broken_pencil from "../images/brokenpencil.svg";
 import ticket2 from "../images/ticket2.svg";
@@ -25,28 +24,7 @@ import PhotoStack from "./PhotoStack";
 function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, photoStackFour, photoStackFive, photoStackSix, photoStackImages }) {
   const papersRef = useRef([]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = window.innerHeight;
-
-      if (scrollTop + clientHeight >= scrollHeight - 10) {
-        document.body.classList.add("show-fade");
-      } else {
-        document.body.classList.remove("show-fade");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleScrollToSlide = (index) => {
-    if (papersRef.current[index]) {
-      papersRef.current[index].scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  
 
   return (
     <div className="scroll-container">
@@ -117,8 +95,8 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
                 style={{
                   position: "absolute",
                   top: "20%",
-                  right: "-20%",
-                  width: "30%",
+                  right: "-18%",
+                  width: "20%",
                   height: "auto",
                   zIndex: 10,
                 }}
@@ -149,7 +127,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
             </div>
           <img src={animation} alt="Animation Gif" style={{ position: "absolute", top: "40%", right: "-25%", width: "40%", height: "auto", zIndex: 10 }} />
           <img src={threequartpizza} alt="Pizza Background" style={{ position: "absolute", bottom: "10%", left:"-50%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(270deg)"}} />
-          <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "60%", height: "auto", zIndex: 10 }} />
+          <img src={mail} alt="Mail Background" style={{ position: "absolute", bottom: "0%", right: "-30%", width: "45%", height: "auto", zIndex: 10 }} />
           </>
           }
 
@@ -178,7 +156,7 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
               </div>
             </div>
               <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
-              <img src={note} alt="Note Background" style={{ position: "absolute", top: "10%", right: "-20%", width: "35%", height: "auto", zIndex: 10 }} />
+              <img src={note} alt="Note Background" style={{ position: "absolute", top: "10%", right: "-20%", width: "25%", height: "auto", zIndex: 10 }} />
             </>
           )}
 
@@ -207,23 +185,23 @@ function MobileSlide({ slides, photoStackOne, photoStackTwo, photoStackThree, ph
               </div>
             </div>
               <img src={stain} alt="Stain Background" style={{ position: "absolute", top: "60%", left: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
-              <img src={note} alt="Note Background" style={{ position: "absolute", top: "22%", left: "-20%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
+              <img src={note} alt="Note Background" style={{ position: "absolute", top: "22%", left: "-18%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
               <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: 50, right: "-20%", width: "40%", height: "auto", zIndex: 10 }} />
             </>
           )}
 
           {index === 6 && (
             <>
-              <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "-20%", left: "-60%", width: "75%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
+              <img src={coffee} alt="Coffee Background" style={{ position: "absolute", top: "-20%", left: "-60%", width: "70%", height: "auto", zIndex: 10, transform: "rotate(-20deg)" }} />
               <img src={ticket2} alt="Full Ticket Background" style={{ position: "absolute", top: "-5%", left: "30%", width: "15%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
               <div style={{ top: "10%", left: "-30%", width: "10%", height: "auto", zIndex: 1, float: "left", marginRight: "20px" }}>
               <div className="photo-stack-container">
                 <PhotoStack images={photoStackSix} />
               </div>
             </div>
-              <img src={note} alt="Note Background" style={{ position: "absolute", top: "72%", left: "-25%", width: "35%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
-              <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: "75%", right: "-15%", width: "40%", height: "auto", zIndex: 10, transform: "rotate(100deg)" }} />
-              <img src={pinkpostit} alt="Pink Post It Background" style={{ position: "absolute", top: "25%", right: "-30%", width: "60%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
+              <img src={note} alt="Note Background" style={{ position: "absolute", top: "72%", left: "-18%", width: "25%", height: "auto", zIndex: 10, transform: "rotate(20deg)" }} />
+              <img src={pencil} alt="Pencil Background" style={{ position: "absolute", top: "75%", right: "-20%", width: "30%", height: "auto", zIndex: 10, transform: "rotate(100deg)" }} />
+              <img src={pinkpostit} alt="Pink Post It Background" style={{ position: "absolute", top: "25%", right: "-35%", width: "50%", height: "auto", zIndex: 10, transform: "rotate(10deg)" }} />
             </>
           )} 
 

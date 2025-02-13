@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollingEffect from "./components/ScrollingEffect";
 import Landing from './components/Landing';
-import PhotoStack from "./components/PhotoStack";
 import MobileSlide from "./components/MobileSlide";
 
 function App() {
