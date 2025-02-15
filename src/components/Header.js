@@ -42,7 +42,7 @@ const Header = () => {
       {/* Daily Bruin */}
       <a href="https://dailybruin.com">
         {/*<img src={DBLogo} alt="Daily Bruin" /> */}
-        <h1>DAILY BRUIN</h1>
+        <h1>DAILY TROJAN</h1>
       </a>
     </DBHeader>
   );
